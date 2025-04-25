@@ -30,8 +30,6 @@ public class GameActivity extends AppCompatActivity {
     private boolean gameOver = false;
     private Button backButton;
     private SharedPreferences sharedPreferences;
-
-    // Ajouter DBHelper pour gérer la base de données
     private DBHelper dbHelper;
 
     @Override

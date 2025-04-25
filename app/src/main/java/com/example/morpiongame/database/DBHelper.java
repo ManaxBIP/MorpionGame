@@ -10,11 +10,9 @@ import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    // Nom de la base de données
     private static final String DATABASE_NAME = "morpion_game.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Table de l'historique des parties
     public static final String TABLE_HISTORY = "history";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_PLAYER_SCORE = "player_score";
@@ -46,7 +44,6 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Méthode pour insérer une partie dans la base de données
     public void insertGameHistory(SQLiteDatabase db, int playerScore, int aiScore, String result, String date) {
         String insertQuery = "INSERT INTO " + TABLE_HISTORY +
                 " (" + COLUMN_PLAYER_SCORE + ", " + COLUMN_AI_SCORE + ", " + COLUMN_RESULT + ", " + COLUMN_DATE + ") " +
@@ -54,7 +51,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(insertQuery);
     }
 
-    // Méthode pour obtenir tous les résultats
     public void getAllHistory(SQLiteDatabase db) {
         String query = "SELECT * FROM " + TABLE_HISTORY;
         db.rawQuery(query, null);
