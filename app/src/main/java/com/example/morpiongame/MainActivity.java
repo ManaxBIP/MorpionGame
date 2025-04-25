@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Switch;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
@@ -64,6 +66,19 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("mode", mode);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter l'application")
+                .setMessage("Es-tu sûr(e) de vouloir quitter le jeu ?")
+                .setPositiveButton("Oui", (dialog, which) -> {
+                    finishAffinity();  // Ferme toutes les activités et quitte l'app
+                })
+                .setNegativeButton("Non", null)
+                .show();
+    }
+
 }
 
 

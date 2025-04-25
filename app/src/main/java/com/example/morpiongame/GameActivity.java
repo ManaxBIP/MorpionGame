@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
@@ -179,5 +181,17 @@ public class GameActivity extends AppCompatActivity {
 
         // Fermer l'activité en cours (GameActivity).
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter la partie")
+                .setMessage("Es-tu sûr(e) de vouloir quitter cette partie ?")
+                .setPositiveButton("Oui", (dialog, which) -> {
+                    super.onBackPressed();  // revient à l'activité précédente
+                })
+                .setNegativeButton("Non", null)
+                .show();
     }
 }
