@@ -1,6 +1,6 @@
 Liste des fonctionnalités implémentées :
 
-[ ] Utilisation de l'Api Preference
+[X] Utilisation de l'Api Preference
 
 
 [ ] Ecriture/lecture dans un Fichier
@@ -13,7 +13,7 @@ Liste des fonctionnalités implémentées :
 
 [ ] Nombre d'activités ou fragment supérieur ou égal à 3
 
-[ ] Gestion du bouton Back (message pour confirmer que l'on veut réellement quitter l'application)
+[X] Gestion du bouton Back (message pour confirmer que l'on veut réellement quitter l'application)
 
 [ ] L'affichage d'une liste avec son adapter
 
