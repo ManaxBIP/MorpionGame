@@ -1,56 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp"
-    android:background="?android:attr/windowBackground"
     tools:context=".MainActivity">
 
-    <TextView
-        android:text="Tic Tac Toe"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:textColor="?android:textColorPrimary" />
-    <Button
-        android:id="@+id/btnVsEasyAI"
-        android:text="Jouer vs IA (Facile)"
-        android:layout_marginBottom="20dp"
-        style="@style/MainMenuButton"/>
-
-    <Button
-        android:id="@+id/btnVsHardAI"
-        android:text="Jouer vs IA (Difficile)"
-        android:layout_marginBottom="20dp"
-        style="@style/MainMenuButton"
-        android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/btnTwoPlayers"
-        android:text="Jouer à 2 joueurs"
-        android:layout_marginBottom="40dp"
-        style="@style/MainMenuButton"
-        android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/btnHistory"
+    <!-- Conteneur pour les fragments -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Voir l'historique des parties"
-        android:layout_marginTop="12dp"/>
+        android:layout_height="741dp"
+        android:layout_above="@id/bottom_nav"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="56dp" >
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="650dp"
+            android:layout_alignParentBottom="false"
+            android:layoutMode="clipBounds"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:menu="@menu/bottom_nav_menu" />
+    </FrameLayout>
 
-    <Switch
-        android:id="@+id/switchDarkMode"
-        android:text="Mode sombre"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:textSize="16sp"
-        android:checked="false"/>
-</LinearLayout>
+    <!-- BottomNavigationView -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
