@@ -59,8 +59,14 @@ public class MainActivity extends AppCompatActivity {
         btnVsEasyAI.setOnClickListener(v -> startGame("AI_EASY"));
         btnVsHardAI.setOnClickListener(v -> startGame("AI_HARD"));
         btnTwoPlayers.setOnClickListener(v -> startGame("TWO_PLAYER"));
-    }
 
+        Button btnHistory = findViewById(R.id.btnHistory);
+        btnHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+            startActivity(intent);
+        });
+
+    }
     private void startGame(String mode) {
         Intent intent = new Intent(MainActivity.this, GameActivity.class);
         intent.putExtra("mode", mode);

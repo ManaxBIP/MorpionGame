@@ -28,13 +28,23 @@
         android:id="@+id/btnVsHardAI"
         android:text="Jouer vs IA (Difficile)"
         android:layout_marginBottom="20dp"
-        style="@style/MainMenuButton"/>
+        style="@style/MainMenuButton"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btnTwoPlayers"
         android:text="Jouer à 2 joueurs"
         android:layout_marginBottom="40dp"
-        style="@style/MainMenuButton"/>
+        style="@style/MainMenuButton"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Voir l'historique des parties"
+        android:layout_marginTop="12dp"/>
+
 
     <Switch
         android:id="@+id/switchDarkMode"

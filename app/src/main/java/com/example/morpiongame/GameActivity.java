@@ -6,12 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 
+import com.example.morpiongame.database.DBHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
@@ -28,6 +31,9 @@ public class GameActivity extends AppCompatActivity {
     private Button backButton;
     private SharedPreferences sharedPreferences;
 
+    // Ajouter DBHelper pour gérer la base de données
+    private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,9 @@ public class GameActivity extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> backMenu());
         setupButtons();
+
+        // Initialisation de DBHelper
+        dbHelper = new DBHelper(this);
 
         // Récupérer le mode de jeu
         gameMode = getIntent().getStringExtra("mode");
@@ -151,6 +160,14 @@ public class GameActivity extends AppCompatActivity {
             aiScore++;
         }
         updateScore();
+
+        // Enregistrer le résultat dans la base de données
+        String result = message.contains("Tu") ? "win" : (message.contains("IA") ? "lose" : "draw");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date = sdf.format(new Date());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        dbHelper.insertGameHistory(db, playerScore, aiScore, result, date);
+
         replayButton.setVisibility(View.VISIBLE);
         backButton.setVisibility(View.VISIBLE);
     }
@@ -176,22 +193,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void backMenu() {
         Intent intent = new Intent(GameActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  // Ferme toutes les autres activités avant de revenir au menu principal.
         startActivity(intent);
-
-        // Fermer l'activité en cours (GameActivity).
         finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle("Quitter la partie")
-                .setMessage("Es-tu sûr(e) de vouloir quitter cette partie ?")
-                .setPositiveButton("Oui", (dialog, which) -> {
-                    super.onBackPressed();  // revient à l'activité précédente
-                })
-                .setNegativeButton("Non", null)
-                .show();
     }
 }
