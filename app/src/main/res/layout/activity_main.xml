@@ -1,74 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/homeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="?android:attr/windowBackground"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="16dp">
+    <TextView
+        android:text="Tic Tac Toe"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:textColor="?android:textColorPrimary" />
 
-        <TextView
-            android:id="@+id/scoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Score : Toi: 0 | IA: 0"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp" />
+    <Button
+        android:id="@+id/btnVsEasyAI"
+        android:text="Jouer vs IA (Facile)"
+        android:layout_marginBottom="20dp"
+        style="@style/MainMenuButton"/>
 
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="3"
-            android:alignmentMode="alignMargins"
-            android:useDefaultMargins="true">
+    <Button
+        android:id="@+id/btnVsHardAI"
+        android:text="Jouer vs IA (Difficile)"
+        android:layout_marginBottom="20dp"
+        style="@style/MainMenuButton"/>
 
-            <Button
-                android:id="@+id/button00"
-                style="@style/TicTacToeButton"/>
-            <Button
-                android:id="@+id/button01"
-                style="@style/TicTacToeButton"/>
-            <Button
-                android:id="@+id/button02"
-                style="@style/TicTacToeButton"/>
+    <Button
+        android:id="@+id/btnTwoPlayers"
+        android:text="Jouer à 2 joueurs"
+        android:layout_marginBottom="40dp"
+        style="@style/MainMenuButton"/>
 
-            <Button
-                android:id="@+id/button10"
-                style="@style/TicTacToeButton"/>
-            <Button
-                android:id="@+id/button11"
-                style="@style/TicTacToeButton"/>
-            <Button
-                android:id="@+id/button12"
-                style="@style/TicTacToeButton"/>
-
-            <Button
-                android:id="@+id/button20"
-                style="@style/TicTacToeButton"/>
-            <Button
-                android:id="@+id/button21"
-                style="@style/TicTacToeButton"/>
-            <Button
-                android:id="@+id/button22"
-                style="@style/TicTacToeButton"/>
-        </GridLayout>
-
-        <Button
-            android:id="@+id/replayButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rejouer"
-            android:layout_marginTop="20dp"
-            android:visibility="gone"/>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Switch
+        android:id="@+id/switchDarkMode"
+        android:text="Mode sombre"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:textSize="16sp"
+        android:checked="false"/>
+</LinearLayout>
