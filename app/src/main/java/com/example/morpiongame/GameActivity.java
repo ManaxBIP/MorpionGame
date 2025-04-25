@@ -1,5 +1,6 @@
 package com.example.morpiongame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import android.content.SharedPreferences;
 
 import java.util.Random;
 
@@ -21,6 +23,8 @@ public class GameActivity extends AppCompatActivity {
     private int aiScore = 0;
     private String gameMode = "";
     private boolean gameOver = false;
+    private Button backButton;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +35,16 @@ public class GameActivity extends AppCompatActivity {
         replayButton = findViewById(R.id.replayButton);
         replayButton.setOnClickListener(v -> resetGame());
 
+        backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> backMenu());
         setupButtons();
 
         // Récupérer le mode de jeu
         gameMode = getIntent().getStringExtra("mode");
+        sharedPreferences = getSharedPreferences("settings", MODE_PRIVATE);
+
+        // Appliquer le mode sombre/lumineux lors de la création de l'activité
+        updateNightMode();
     }
 
     private void setupButtons() {
@@ -99,6 +109,22 @@ public class GameActivity extends AppCompatActivity {
         playerTurn = true;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Appliquer le mode sombre/lumineux à chaque fois que l'activité revient
+        updateNightMode();
+    }
+
+    private void updateNightMode() {
+        boolean isDarkMode = sharedPreferences.getBoolean("dark_mode", false);
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
     private void aiMoveHard() {
         // Logique IA Difficile (Minimax à implémenter ici)
         aiMoveEasy();  // En attendant l'implémentation du Minimax, on garde Easy
@@ -124,6 +150,7 @@ public class GameActivity extends AppCompatActivity {
         }
         updateScore();
         replayButton.setVisibility(View.VISIBLE);
+        backButton.setVisibility(View.VISIBLE);
     }
 
     private void updateScore() {
@@ -136,11 +163,21 @@ public class GameActivity extends AppCompatActivity {
         playerTurn = true;
         gameOver = false;
         replayButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 buttons[i][j].setText("");
             }
         }
+    }
+
+    private void backMenu() {
+        Intent intent = new Intent(GameActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  // Ferme toutes les autres activités avant de revenir au menu principal.
+        startActivity(intent);
+
+        // Fermer l'activité en cours (GameActivity).
+        finish();
     }
 }

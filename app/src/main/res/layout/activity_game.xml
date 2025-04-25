@@ -47,4 +47,11 @@
         android:text="Rejouer"
         android:layout_marginTop="20dp"
         android:visibility="gone" />
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu principal"
+        android:layout_marginTop="20dp"
+        android:visibility="gone" />
 </LinearLayout>
