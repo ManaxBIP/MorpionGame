@@ -1,5 +1,6 @@
 package com.example.morpiongame;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -48,9 +49,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
         new AlertDialog.Builder(this)
                 .setTitle("Quitter l'application")
                 .setMessage("Es-tu sûr de vouloir quitter ?")
