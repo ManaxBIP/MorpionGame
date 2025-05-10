@@ -7,7 +7,6 @@
     android:padding="16dp"
     android:background="?android:attr/windowBackground">
 
-    <!-- Affichage du score -->
     <TextView
         android:id="@+id/scoreText"
         android:layout_width="wrap_content"
@@ -17,7 +16,7 @@
         android:layout_marginBottom="16dp"
         android:textColor="?android:textColorPrimary" />
 
-    <!-- Grille du jeu -->
+
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
@@ -27,7 +26,7 @@
         android:useDefaultMargins="true"
         android:alignmentMode="alignMargins">
 
-        <!-- Les 9 boutons du plateau -->
+
         <Button android:id="@+id/button00" style="@style/TicTacToeButton" />
         <Button android:id="@+id/button01" style="@style/TicTacToeButton" />
         <Button android:id="@+id/button02" style="@style/TicTacToeButton" />
@@ -39,7 +38,7 @@
         <Button android:id="@+id/button22" style="@style/TicTacToeButton" />
     </GridLayout>
 
-    <!-- Bouton rejouer, caché au début -->
+
     <Button
         android:id="@+id/replayButton"
         android:layout_width="wrap_content"

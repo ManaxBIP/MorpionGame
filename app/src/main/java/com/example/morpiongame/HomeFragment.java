@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
         Button playButton = view.findViewById(R.id.playButton);
         playButton.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), GameActivity.class);
-            intent.putExtra("mode", "AI_EASY");  // ou "AI_HARD" selon préférence
+            intent.putExtra("mode", "AI_EASY");
             startActivity(intent);
         });
 

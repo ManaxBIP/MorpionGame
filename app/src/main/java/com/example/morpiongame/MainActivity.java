@@ -18,10 +18,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Initialiser BottomNavigationView
+        
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        // Configurer la navigation de la BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             if (item.getItemId() == R.id.nav_home){
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Charger par défaut le fragment "Home"
         if (savedInstanceState == null) {
-            bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sélectionner "Home" au lancement
+            bottomNavigationView.setSelectedItemId(R.id.nav_home);
         }
     }
 

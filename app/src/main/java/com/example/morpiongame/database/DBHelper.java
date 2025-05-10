@@ -17,7 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_PLAYER_SCORE = "player_score";
     public static final String COLUMN_AI_SCORE = "ai_score";
-    public static final String COLUMN_RESULT = "result";  // "win", "lose", "draw"
+    public static final String COLUMN_RESULT = "result";
     public static final String COLUMN_DATE = "date";
 
     // Requête pour créer la table de l'historique
