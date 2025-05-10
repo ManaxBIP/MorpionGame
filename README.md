@@ -7,8 +7,6 @@ Liste des fonctionnalités implémentées :
 
 [X] Utilisation de SQLite
 
-[ ] Utilisation de Room
-
 [ ] Utilisation de Firebase
 
 [X] Nombre d'activités ou fragment supérieur ou égal à 3
