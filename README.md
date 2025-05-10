@@ -23,7 +23,7 @@ Liste des fonctionnalités implémentées :
 
 [ ] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser :
 
-[ ] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser :
+[X] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser : Paint
 
 [ ] Les taches en background (codage du démarrage d'un thread)
 
