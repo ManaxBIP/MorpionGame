@@ -2,6 +2,8 @@ package com.example.morpiongame;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -45,4 +47,16 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sélectionner "Home" au lancement
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter l'application")
+                .setMessage("Es-tu sûr de vouloir quitter ?")
+                .setPositiveButton("Oui", (dialog, which) -> finish())
+                .setNegativeButton("Non", null)
+                .show();
+    }
+
 }
