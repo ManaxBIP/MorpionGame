@@ -27,7 +27,7 @@ Liste des fonctionnalités implémentées :
 
 [ ] Les taches en background (codage du démarrage d'un thread)
 
-[ ] Le codage d'un menu (contextuel ou non, utilisation d'un menu en resource XML)
+[X] Le codage d'un menu (contextuel ou non, utilisation d'un menu en resource XML)
 
 [ ] L'application de pattern (Reactive programming, singleton, MVC,...) Liste :
 
