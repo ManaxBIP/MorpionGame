@@ -48,7 +48,7 @@ public class GameActivity extends AppCompatActivity {
         setupButtons();
 
         // Initialisation de DBHelper
-        dbHelper = new DBHelper(this);
+        dbHelper = DBHelper.getInstance(this);
 
         // Récupérer le mode de jeu
         gameMode = getIntent().getStringExtra("mode");

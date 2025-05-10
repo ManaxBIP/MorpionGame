@@ -29,6 +29,14 @@ public class DBHelper extends SQLiteOpenHelper {
                     COLUMN_RESULT + " TEXT, " +
                     COLUMN_DATE + " TEXT);";
 
+    private static DBHelper instance;
+
+    public static synchronized DBHelper getInstance(Context context) {
+        if (instance == null) {
+            instance = new DBHelper(context.getApplicationContext());
+        }
+        return instance;
+    }
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
