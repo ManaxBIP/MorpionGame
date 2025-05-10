@@ -3,7 +3,7 @@ Liste des fonctionnalités implémentées :
 [X] Utilisation de l'Api Preference
 
 
-[ ] Ecriture/lecture dans un Fichier
+[X] Ecriture dans un Fichier
 
 [X] Utilisation de SQLite
 
