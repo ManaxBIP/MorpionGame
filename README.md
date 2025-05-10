@@ -29,7 +29,7 @@ Liste des fonctionnalités implémentées :
 
 [X] Le codage d'un menu (contextuel ou non, utilisation d'un menu en resource XML)
 
-[ ] L'application de pattern (Reactive programming, singleton, MVC,...) Liste :
+[X] L'application de pattern (Reactive programming, singleton, MVC,...) Liste : Singleton
 
 [ ] Demande des autorisations
 
