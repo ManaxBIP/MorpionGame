@@ -2,9 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="24dp"
-    android:padding="16dp"
-    android:gravity="top|center_horizontal"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
     android:fitsSystemWindows="true">
 
     <TextView
@@ -16,10 +15,26 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.example.morpiongame.views.AnimatedTicTacToeView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <Button
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jouer"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginBottom="64dp"/>
 </LinearLayout>
