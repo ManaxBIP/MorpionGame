@@ -38,6 +38,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         return historyList.size();
     }
 
+    public List<GameHistory> getHistoryList() {return historyList;}
+
     public static class HistoryViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
 
@@ -46,4 +48,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             textView = itemView.findViewById(R.id.historyText);
         }
     }
+
+    public void removeItem(int position) {
+        historyList.remove(position);
+        notifyItemRemoved(position);
+    }
+
 }

@@ -8,10 +8,11 @@ public class GameHistory {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
-    public long timestamp;  // pour trier par date
+    public long timestamp;// pour trier par date
     private String result;
     private String date;
-    public GameHistory(String result, String date) {
+    public GameHistory(int id, String result, String date) {
+        this.id = id;
         this.result = result;
         this.date = date;
     }
@@ -23,6 +24,8 @@ public class GameHistory {
     public String getDate(){
         return date;
     }
+
+    public int getId() {return id;}
 
     public void setResult(String result) {
         this.result = result;

@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,6 +44,30 @@ public class HistoryFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Aucune partie enregistrée", Toast.LENGTH_SHORT).show();
         }
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                GameHistory history = adapter.getHistoryList().get(position);
+
+                // Supprime de la base de données
+                DBHelper dbHelper = new DBHelper(requireContext());
+                dbHelper.deleteGame(history.getId());
+
+                // Supprime de la liste
+                adapter.removeItem(position);
+
+                Toast.makeText(getContext(), "Partie supprimée", Toast.LENGTH_SHORT).show();
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewHistory);
+
 
         return view;
     }

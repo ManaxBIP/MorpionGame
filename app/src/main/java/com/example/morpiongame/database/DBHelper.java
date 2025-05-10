@@ -52,6 +52,12 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void deleteGame(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_HISTORY, "id = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
     public void insertGameHistory(SQLiteDatabase db, int playerScore, int aiScore, String result, String date) {
         String insertQuery = "INSERT INTO " + TABLE_HISTORY +
                 " (" + COLUMN_PLAYER_SCORE + ", " + COLUMN_AI_SCORE + ", " + COLUMN_RESULT + ", " + COLUMN_DATE + ") " +
@@ -71,9 +77,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
+                int id = cursor.getInt(cursor.getColumnIndex("id"));
                 String result = cursor.getString(cursor.getColumnIndex("result"));
                 String date = cursor.getString(cursor.getColumnIndex("date"));
-                historyList.add(new GameHistory(result, date));
+                historyList.add(new GameHistory(id, result, date));
             } while (cursor.moveToNext());
             cursor.close();
         }
