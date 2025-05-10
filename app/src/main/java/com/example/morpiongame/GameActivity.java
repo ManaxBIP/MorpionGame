@@ -13,6 +13,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.morpiongame.database.DBHelper;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -149,6 +151,15 @@ public class GameActivity extends AppCompatActivity {
         return false;
     }
 
+    private void writeScoreToFile(String content) {
+        try {
+            FileOutputStream fos = openFileOutput("score_log.txt", MODE_APPEND);
+            fos.write((content + "\n").getBytes());
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void showResult(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         gameOver = true;
@@ -165,6 +176,10 @@ public class GameActivity extends AppCompatActivity {
         String date = sdf.format(new Date());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         dbHelper.insertGameHistory(db, playerScore, aiScore, result, date);
+
+        // Enregistrer le résultat dans un fichier
+        String fileLog = "Résultat: " + result + " | Score: Toi " + playerScore + " - IA " + aiScore;
+        writeScoreToFile(fileLog);
 
         replayButton.setVisibility(View.VISIBLE);
         backButton.setVisibility(View.VISIBLE);
