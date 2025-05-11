@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="tic_tac_toe_max_portrait">300dp</dimen>
+    <dimen name="tic_tac_toe_max_landscape">200dp</dimen>
+</resources>

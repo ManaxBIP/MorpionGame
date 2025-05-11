@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.example.morpiongame.R;
+
 import java.util.Random;
 
 public class AnimatedTicTacToeView extends View {
@@ -105,4 +107,21 @@ public class AnimatedTicTacToeView extends View {
             }
         }
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int availableWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int availableHeight = MeasureSpec.getSize(heightMeasureSpec);
+
+        float density = getResources().getDisplayMetrics().density;
+        int maxDp = (availableHeight > availableWidth) ? 300 : 200;
+        int maxSize = (int) (maxDp * density);
+
+        // Taille carrée minimale parmi largeur, hauteur et max
+        int size = Math.min(Math.min(availableWidth, availableHeight), maxSize);
+
+        int finalMeasureSpec = MeasureSpec.makeMeasureSpec(size, MeasureSpec.EXACTLY);
+        super.onMeasure(finalMeasureSpec, finalMeasureSpec);
+    }
+
 }
