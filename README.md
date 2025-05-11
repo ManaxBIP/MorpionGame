@@ -17,7 +17,7 @@ Liste des fonctionnalités implémentées :
 
 [X] L'affichage d'une liste avec un custom adapter (avec gestion d’événement)
 
-[ ] La pertinence d'utilisation des layouts (L'application doit être responsive et supporter: portrait/paysage et tablette)
+[X] La pertinence d'utilisation des layouts (L'application doit être responsive et supporter: portrait/paysage et tablette)
 
 [X] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser : swipe pour supprimer une partie de l'historique
 
