@@ -23,7 +23,7 @@ Liste des fonctionnalités implémentées :
 
 [X] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser : Animation infinie de parties de Tic Tac Toe via une vue custom (Paint)
 
-[ ] Les taches en background (codage du démarrage d'un thread)
+[X] Les taches en background (codage du démarrage d'un thread)
 
 [X] Le codage d'un menu (contextuel ou non, utilisation d'un menu en resource XML)
 
