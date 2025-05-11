@@ -29,8 +29,8 @@ Liste des fonctionnalités implémentées :
 
 [X] L'application de pattern (Reactive programming, singleton, MVC,...) Liste : Singleton
 
-[ ] Demande des autorisations
+[X] Demande des autorisations
 
 [ ] L'appel de WebServices
 
-[ ] Utilisation des API Android (géolocalisation, contacts, accéléromètre, ...)
+[X] Utilisation des API Android (géolocalisation, contacts, accéléromètre, ...) : Géolocalisation
