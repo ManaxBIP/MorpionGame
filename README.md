@@ -21,7 +21,7 @@ Liste des fonctionnalités implémentées :
 
 [X] L'utilisation de d’événement améliorant l'ux (pex: swipe). Préciser : swipe pour supprimer une partie de l'historique
 
-[X] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser : Paint
+[X] La réalisation de composant graphique custom (Paint 2D, Calendrier,...) Préciser : Animation infinie de parties de Tic Tac Toe via une vue custom (Paint)
 
 [ ] Les taches en background (codage du démarrage d'un thread)
 
