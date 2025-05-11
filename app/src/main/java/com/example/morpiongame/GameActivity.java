@@ -5,8 +5,11 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,6 +72,15 @@ public class GameActivity extends AppCompatActivity {
 
         // Appliquer le mode sombre/lumineux lors de la création de l'activité
         updateNightMode();
+
+        LinearLayout loadingLayout = findViewById(R.id.loadingLayout);
+        LinearLayout gameContent = findViewById(R.id.gameContent);
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            loadingLayout.setVisibility(View.GONE);
+            gameContent.setVisibility(View.VISIBLE);
+        }, 2000);
+
     }
 
     private void setupButtons() {

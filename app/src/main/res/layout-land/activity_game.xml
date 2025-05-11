@@ -1,72 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:gravity="center"
     android:background="?android:attr/windowBackground">
 
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="3"
-        android:useDefaultMargins="true"
-        android:alignmentMode="alignMargins">
+    <LinearLayout
+        android:id="@+id/gameContent"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:gravity="center">
 
-    <Button android:id="@+id/button00" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button01" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button02" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button10" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button11" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button12" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button20" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button21" style="@style/TicTacToeButton" />
-    <Button android:id="@+id/button22" style="@style/TicTacToeButton" />
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:useDefaultMargins="true"
+            android:alignmentMode="alignMargins">
 
-    </GridLayout>
+            <Button android:id="@+id/button00" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button01" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button02" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button10" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button11" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button12" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button20" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button21" style="@style/TicTacToeButton" />
+            <Button android:id="@+id/button22" style="@style/TicTacToeButton" />
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="32dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vous jouez depuis : "
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:layout_marginTop="16dp"
+                android:textColor="?android:textColorPrimary" />
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score - Toi: 0 | IA: 0"
+                android:textSize="18sp"
+                android:textColor="?android:textColorPrimary"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/replayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rejouer"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu principal"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginStart="32dp"
-        android:gravity="center_vertical">
+        android:background="?android:attr/windowBackground"
+        android:visibility="visible">
 
-        <TextView
-            android:id="@+id/locationText"
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vous jouez depuis : "
-            android:textSize="16sp"
-            android:visibility="gone"
+            android:indeterminate="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chargement de la partie..."
             android:layout_marginTop="16dp"
-            android:textColor="?android:textColorPrimary" />
-
-        <TextView
-            android:id="@+id/scoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Score - Toi: 0 | IA: 0"
-            android:textSize="18sp"
-            android:textColor="?android:textColorPrimary"
-            android:layout_marginBottom="24dp" />
-
-        <Button
-            android:id="@+id/replayButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rejouer"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menu principal"
-            android:visibility="gone"/>
+            android:textSize="16sp" />
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>
